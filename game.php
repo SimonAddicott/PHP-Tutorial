@@ -105,13 +105,32 @@ class TicTacToe {
 		system("clear");
 	}
 
-	//
-	// This function will check to see if anyone has won the game	
-	//
-	private function checkTableForWinner() {
-		// todo
+
+	private function checkTableForWinner() {		
+		// check all UP/DOWN
+		for($x = 0; $x < 3; $x++) { 
+			if(!is_null($this->table[$x][0]) 
+			&& $this->table[$x][0] == $this->table[$x][1] 
+			&& $this->table[$x][1] == $this->table[$x][2]){
+				$this->clearScreen();
+                                $this->printTable($this->table);
+				echo "User " . $this->table[$x][0] . " has won!\n\n";
+                                return true;
+			}
+		}
+		// check all LEFT/RIGHT
+                for($y = 0; $y < 3; $y++) {
+                        if(!is_null($this->table[0][$y]) 
+			&& $this->table[0][$y] == $this->table[1][$y] 
+			&& $this->table[1][$y] == $this->table[2][$y]){
+			        $this->clearScreen();
+				$this->printTable($this->table);
+				echo "User " . $this->table[$y][0] . " has won!\n\n";
+                                return true;
+                        }
+                }
+		return false;
 	}
-	
 	
 	//
 	// This is the construct method.
@@ -120,7 +139,8 @@ class TicTacToe {
 	// the get go, happens under this method
 	//
 	public function __construct() {
-		while( true ) {
+		$userWon = false;
+		while( $userWon == false ) {
 			$this->clearScreen();
 			$this->printTable();
 			if( $userATurn == true ) {
@@ -130,6 +150,7 @@ class TicTacToe {
 				$this->getUserInput($this->userA);
 				$userATurn = true;
 			}
+			$userWon = $this->checkTableForWinner();
 		}
 	}
 }
@@ -147,5 +168,4 @@ class TicTacToe {
 
 $game = new TicTacToe();
 
-// These tags btw, <?php & ?> are just to tell the PHP compiler where the code starts and ends.
 ?>
