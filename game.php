@@ -1,7 +1,7 @@
 <?php
 /**
  *
- *	Object Oriented TicTacToe Game
+ *	Object Orientated TicTacToe Game
  *	Written by Simon Addicott
  *	Date 22/08/2022
  *
