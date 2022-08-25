@@ -107,7 +107,7 @@ class TicTacToe {
 
 
 	private function checkTableForWinner() {		
-		// check all UP/DOWN
+		// check vertical
 		for($x = 0; $x < 3; $x++) { 
 			if(!is_null($this->table[$x][0]) 
 			&& $this->table[$x][0] == $this->table[$x][1] 
@@ -118,7 +118,8 @@ class TicTacToe {
                                 return true;
 			}
 		}
-		// check all LEFT/RIGHT
+
+		// check horizontal
                 for($y = 0; $y < 3; $y++) {
                         if(!is_null($this->table[0][$y]) 
 			&& $this->table[0][$y] == $this->table[1][$y] 
@@ -128,6 +129,24 @@ class TicTacToe {
 				echo "User " . $this->table[$y][0] . " has won!\n\n";
                                 return true;
                         }
+                }
+		
+		// check diagonaly
+		if(!is_null($this->table[0][0]) 
+		    && $this->table[0][0] == $this->table[1][1] 
+		    && $this->table[1][1] == $this->table[2][2]) {
+			$this->clearScreen();
+                        $this->printTable($this->table);
+                        echo "User " . $this->table[0][0] . " has won!\n\n";	
+			return true;
+		} 
+		if(!is_null($this->table[2][0])
+                    && $this->table[2][0] == $this->table[1][1] 
+                    && $this->table[1][1] == $this->table[0][2]) {
+                        $this->clearScreen();
+                        $this->printTable($this->table);
+                        echo "User " . $this->table[2][0] . " has won!\n\n";  
+                        return true;
                 }
 		return false;
 	}
