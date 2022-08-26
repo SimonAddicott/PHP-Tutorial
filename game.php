@@ -113,7 +113,7 @@ class TicTacToe {
 			&& $this->table[$x][0] == $this->table[$x][1] 
 			&& $this->table[$x][1] == $this->table[$x][2]){
 				$this->clearScreen();
-                                $this->printTable($this->table);
+                                $this->printTable();
 				echo "User " . $this->table[$x][0] . " has won!\n\n";
                                 return true;
 			}
@@ -125,7 +125,7 @@ class TicTacToe {
 			&& $this->table[0][$y] == $this->table[1][$y] 
 			&& $this->table[1][$y] == $this->table[2][$y]){
 			        $this->clearScreen();
-				$this->printTable($this->table);
+				$this->printTable();
 				echo "User " . $this->table[$y][0] . " has won!\n\n";
                                 return true;
                         }
@@ -136,7 +136,7 @@ class TicTacToe {
 		    && $this->table[0][0] == $this->table[1][1] 
 		    && $this->table[1][1] == $this->table[2][2]) {
 			$this->clearScreen();
-                        $this->printTable($this->table);
+                        $this->printTable();
                         echo "User " . $this->table[0][0] . " has won!\n\n";	
 			return true;
 		} 
@@ -144,7 +144,7 @@ class TicTacToe {
                     && $this->table[2][0] == $this->table[1][1] 
                     && $this->table[1][1] == $this->table[0][2]) {
                         $this->clearScreen();
-                        $this->printTable($this->table);
+                        $this->printTable();
                         echo "User " . $this->table[2][0] . " has won!\n\n";  
                         return true;
                 }
