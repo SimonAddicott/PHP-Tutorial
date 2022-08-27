@@ -42,6 +42,8 @@ class TicTacToe {
 	// This function will print our table to the screen.
 	//
 	private function printTable() {
+		$this->clearScreen();
+		
 		echo "- - - - - - - \n";
 		echo " TIC TAC TOE\n";
 		echo "- - - - - - - \n\n";
@@ -112,7 +114,6 @@ class TicTacToe {
 			if(!is_null($this->table[$x][0]) 
 			&& $this->table[$x][0] == $this->table[$x][1] 
 			&& $this->table[$x][1] == $this->table[$x][2]){
-				$this->clearScreen();
                                 $this->printTable();
 				echo "User " . $this->table[$x][0] . " has won!\n\n";
                                 return true;
@@ -124,7 +125,6 @@ class TicTacToe {
                         if(!is_null($this->table[0][$y]) 
 			&& $this->table[0][$y] == $this->table[1][$y] 
 			&& $this->table[1][$y] == $this->table[2][$y]){
-			        $this->clearScreen();
 				$this->printTable();
 				echo "User " . $this->table[$y][0] . " has won!\n\n";
                                 return true;
@@ -135,7 +135,6 @@ class TicTacToe {
 		if(!is_null($this->table[0][0]) 
 		    && $this->table[0][0] == $this->table[1][1] 
 		    && $this->table[1][1] == $this->table[2][2]) {
-			$this->clearScreen();
                         $this->printTable();
                         echo "User " . $this->table[0][0] . " has won!\n\n";	
 			return true;
@@ -143,7 +142,6 @@ class TicTacToe {
 		if(!is_null($this->table[2][0])
                     && $this->table[2][0] == $this->table[1][1] 
                     && $this->table[1][1] == $this->table[0][2]) {
-                        $this->clearScreen();
                         $this->printTable();
                         echo "User " . $this->table[2][0] . " has won!\n\n";  
                         return true;
@@ -160,7 +158,6 @@ class TicTacToe {
 	public function __construct() {
 		$userWon = false;
 		while( $userWon == false ) {
-			$this->clearScreen();
 			$this->printTable();
 			if( $userATurn == true ) {
 				$this->getUserInput($this->userB);
